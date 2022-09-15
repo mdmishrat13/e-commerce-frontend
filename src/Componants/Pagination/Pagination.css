@@ -1,0 +1,28 @@
+.pagination__section{
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.pagination__section ul{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+}
+.pagination__section ul li{
+    list-style: none;
+    
+}
+.pagination__index{
+    padding: .2rem .6rem;
+    background:var(--color-primary);
+    color:var(--color-white);
+    border: 1px solid transparent;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+.pagination__index:active{
+    background:var(--color-white);
+    color:var(--color-primary);
+    border: 1px solid var(--color-primary);
+}

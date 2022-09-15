@@ -1,0 +1,22 @@
+
+.admin__container{
+    padding: 1rem;
+   background: #f1f1f1;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.makeAdmin__section{
+    text-align: center;
+}
+
+.admin__email-input{
+    margin: 1rem 1rem 0 0;
+    padding: .7rem 1rem;
+    max-width: 20rem;
+    display: inline-block;
+    border: 1px solid var(--color-light);
+}
+.mb-2{
+    margin-bottom: 2rem;
+}

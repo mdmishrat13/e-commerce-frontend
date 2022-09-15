@@ -1,0 +1,31 @@
+footer{
+    background: #2F3C3B;
+    padding: 2rem 0;
+}
+footer h4{
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+
+footer a{
+    font-size: .9rem;
+    color: var(--color-light);
+}
+
+.footer__container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: space-between;
+}
+
+@media only screen and (max-width:1200px){
+    .footer__container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .d-none{
+        display: none;
+    }
+ }
+ @media only screen and (max-width:992px){
+    
+ }

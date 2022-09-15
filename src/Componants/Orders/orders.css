@@ -1,0 +1,43 @@
+.orders__container{
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,0.1);
+}
+.payment__status{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.paid-text{
+    padding: .5rem 1rem;
+    background:var(--color-light);
+    border-radius: .3rem;
+}
+.orders__items{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.order__information-container{
+    justify-content: space-between;
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 1rem;
+}
+
+
+@media screen and (max-width:920px) {
+    .order__information-container{
+        grid-template-columns: 1fr;
+    }
+    
+}  
+@media screen and (max-width:720px) {
+    .order__information-container{
+        grid-template-columns: 1fr;
+    }
+    
+}  

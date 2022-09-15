@@ -1,0 +1,30 @@
+.orderItem__container{
+    max-width: 12rem;
+    height: fit-content;
+    padding: 1rem;
+    border: 1px solid var(--color-light);
+    border-radius: .3rem;
+}
+.ordered__item-image{
+    margin-bottom: .5rem;
+}
+.ordered__item-image img{
+    display: block;
+    width: 10rem;
+    overflow: hidden;
+    height: 8rem;
+}
+
+@media screen and (max-width:720px){
+    .orderItem__container{
+        max-width: 10rem;
+        padding: .5rem;;
+        border-radius: .3rem;
+    }
+    .ordered__item-image img{
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        height: 6rem;
+    }
+}
