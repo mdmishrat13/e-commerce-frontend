@@ -48,7 +48,8 @@ const CheckOut = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <section className="checkout__container">
+    <div className="container">
+      <section className="checkout__container">
       <div className="form__wrapper">
         <form onSubmit={handleSubmit} className="checkout__form" action="#">
           <h3 className="text-center"> Getting Your Orders </h3>
@@ -120,6 +121,7 @@ const CheckOut = () => {
         <Pricing></Pricing>
       </div>
     </section>
+    </div>
   );
 };
 

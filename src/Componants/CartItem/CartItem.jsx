@@ -6,7 +6,7 @@ const CartItem = ({product,increase,decrease,removeFromCart}) => {
     <div className="cart__page-item"> 
       <div className="cart__page-item-product">
         <div className="cart__page-item-product-image">
-          <img src={`https://e-commerce-server.vercel.app/${product.image}`} alt="" />
+          <img src={`http://localhost:5000/${product.image}`} alt="" />
         </div>
         <div className="cart__page-item-texts">
           <h4> {product.name} </h4>

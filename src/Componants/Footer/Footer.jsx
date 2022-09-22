@@ -18,16 +18,19 @@ const Footer = () => {
                 <li> <Link to="#">About Grambangla</Link> </li>
                 <li> <Link to="#">Terms and Condition</Link> </li>
                 <li> <Link to="#">Privacy Policy</Link> </li>
-                <li> <Link to="#">Careers</Link> </li>
-                <li> <Link to="#">Same Day Delivery TC</Link> </li>
+                <li> <Link to="#">Help Center</Link> </li>
             </ul>
             <ul className="footer-items1 d-none">
-                <li> <h4>MY ACCOUN</h4> </li>
+                <li> <h4>MY ACCOUNT</h4> </li>
                 <li> <Link to="#">My Account</Link> </li>
+                
                 <li> <Link to="#">Orders</Link> </li>
                 <li> <Link to="#">Addresses</Link> </li>
-                <li> <Link to="#">Grambangla Certified</Link> </li>
                 <li> <Link to="#">Featured Recommendation</Link> </li>
+            </ul>
+            <ul className="footer-items1 d-none">
+                <li> <h4>CAREER</h4> </li>
+                <li> <Link to="#">Available Job</Link> </li>
             </ul>
             <ul className="footer-items1">
                 <li> <h4>Call Now</h4> </li>

@@ -9,7 +9,7 @@ const Navbar = () => {
   const {admin} = useProductContext()
   const { user, logout,cartItems} = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const {handleSearchChange} = useProductContext(null)
+  const {setSearchText} = useProductContext(null)
 
   return (
     <nav>
@@ -18,8 +18,8 @@ const Navbar = () => {
           <div className="nav__main-logo">
             <Link to='/'><img src={logo} alt="" /></Link>
           </div>
-          {!admin&&<div className="nav__main-search">
-            <input onChange={e=>handleSearchChange(e.target.value)} type="text" />
+          {!admin&&<div className="nav__main-search container">
+            <input onChange={e=>setSearchText(e.target.value)} type="text" />
             <button>
               <i className="uil uil-search"></i>
             </button>

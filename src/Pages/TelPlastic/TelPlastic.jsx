@@ -13,109 +13,15 @@ import { faStar as farStar} from '@fortawesome/free-regular-svg-icons'
 
 const TelPlastic = () => {
   const {addToCart} = useAuth()
-  const {products,filteredProduct,handleSearchChange} = useProductContext()
+  const {products,filteredProduct,handleSearchChange,handleColorChecked,colors,capacities,handleCapacityChecked,setSelectedRatings,selectedRatings} = useProductContext()
   const [currentPage,setCurrentPage]= useState(1)
   const [productPerPage,setProductPerPage]= useState(72)
   const indexOfLastProduct = currentPage * productPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productPerPage;
   const currentProduct = products.slice(indexOfFirstProduct,indexOfLastProduct)
-  const [onCapacityChange,setOnCapacityChange] = useState({})
+  const paginate = pageNumber=>setCurrentPage(pageNumber)
   const [rating,setRating] = useState()
 
- 
-
-  const paginate = pageNumber=>setCurrentPage(pageNumber)
-  const capacities = [
-    {
-      id: "21liters",
-      name: "21 Liters Plus",
-      value:21
-    },
-    {
-      id: "11liters",
-      name: "11-15 Liters",
-      value:11
-    },
-    {
-      id: "16liters",
-      name: "16-20 Liters",
-      value:16
-    },
-    {
-      id: "1liters",
-      name: "1-10 Liters",
-      value:1
-    },
-    {
-      id: "2liters",
-      name: "2-3.5 Liters",
-      value:2
-    },
-    {
-      id: "3liters",
-      name: "3.5-5 Liters",
-      value:3
-    },
-    {
-      id: "0liters",
-      name: "0-2 Liters",
-      value:0
-    },
-  ];
-  const colors = [
-    {
-      id: "red",
-      name: "Red",
-    },
-    {
-      id: "blue",
-      name: "Blue",
-    },
-    {
-      id: "black",
-      name: "Black",
-    },
-    {
-      id: "mixed",
-      name: "Mixed",
-    },
-    {
-      id: "sandalwood",
-      name: "Sandalwood",
-    },
-    {
-      id: "rosewood",
-      name: "Rosewood",
-    },
-    {
-      id: "green",
-      name: "Green",
-    },
-    {
-      id: "brown",
-      name: "Brown",
-    },
-    {
-      id: "pink",
-      name: "Pink",
-    },
-    {
-      id: "orange",
-      name: "Orange",
-    },
-    {
-      id: "white",
-      name: "White",
-    },
-    {
-      id: "violet",
-      name: "Violet",
-    },
-    {
-      id: "silver",
-      name: "Silver",
-    },
-  ];
   const vendors = [{ id: 1, name: "TEL Distribution" }];
   const emis = [
     {
@@ -142,6 +48,7 @@ const TelPlastic = () => {
     },
   ];
 
+
   return (
     <div className="telplastic">
       <div className="container telplastic__container">
@@ -160,11 +67,12 @@ const TelPlastic = () => {
             <ul className="left__menu-checkbox-inputs">
               {capacities.map((capacity) =><li key={capacity.id}>
                   <input
-                  onClick={(e)=>handleSearchChange(e.target.value)}
+                  onChange={()=>handleCapacityChecked(capacity)}
                     type="checkbox"
                     id={capacity.id}
                     name={capacity.name}
                     value={capacity.value}
+                    checked={capacity.checked}
                   />
                   <label htmlFor={capacity.id}>{capacity.name}</label>
                 </li>
@@ -186,11 +94,12 @@ const TelPlastic = () => {
             <ul className="left__menu-checkbox-inputs color-inputs">
               {colors.map((color) =><li key={color.id}>
                   <input
-                  onClick={e=>handleSearchChange(e.target.value)}
+                  onChange={()=>handleColorChecked(color.id)}
                     type="checkbox"
                     id={color.id}
                     name={color.name}
                     value={color.name}
+                    checked={color.checked}
                   />
                   <label htmlFor={color.id}>{color.name}</label>
                 </li>
@@ -286,7 +195,7 @@ const TelPlastic = () => {
             </div>
            
             <h4 className="left__menu-checkbox-inputs rattings__filter mt-1">
-            <Rating initialRating={0} onClick={value=>handleSearchChange(value.toString())} emptySymbol={<FontAwesomeIcon className="color-golden" icon={farStar} />} fullSymbol={<FontAwesomeIcon className="color-golden" icon={faStar} />}></Rating>
+            <Rating initialRating={0} onClick={value=>!value?setSelectedRatings(null):setSelectedRatings(value)} emptySymbol={<FontAwesomeIcon className="color-golden" icon={farStar} />} fullSymbol={<FontAwesomeIcon className="color-golden" icon={faStar} />}></Rating>
             </h4>
           </div>
         </div>
@@ -294,7 +203,7 @@ const TelPlastic = () => {
         {/* ************** right section *************   */}
 
         <div className="telplastic__right-section">
-          <h2 className="telplastic__right-title">TEL PLASTICS</h2>
+          <h2 className="telplastic__right-title">Grambangla Marketing and Company Ltd.</h2>
 
           <div className="telplastic__right-filters">
             <div className="sorting-filters">
@@ -322,7 +231,7 @@ const TelPlastic = () => {
           </div>
 
           <div className="telplastic__products">
-            {filteredProduct?.map((product)=><Product key={product?._id} addToCart={addToCart} product={product}></Product>)}
+            {products?.map((product)=><Product key={product?._id} addToCart={addToCart} product={product}></Product>)}
           </div>
           
         </div>

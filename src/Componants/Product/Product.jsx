@@ -28,7 +28,8 @@ const Product = ({ product,addToCart }) => {
 
   const fetchComment= async()=>{
     try{
-      const comments= await axios(`https://e-commerce-server.vercel.app/comment/${product._id}`)
+      // const comments= await axios(`https://e-commerce-server.vercel.app/comment/${product._id}`)
+      const comments= await axios(`http://localhost:5000/comment/${product._id}`)
       setComments(comments.data)
     }
     catch(error){
@@ -44,7 +45,8 @@ const Product = ({ product,addToCart }) => {
     <article className="product">
       <img
         className="product__image"
-        src={`https://e-commerce-server.vercel.app/${product.image}`}
+        // src={`https://e-commerce-server.vercel.app/${product.image}`}
+        src={`http://localhost:5000/${product.image}`}
          alt=""
       />
       <div className="product__texts">
@@ -65,10 +67,10 @@ const Product = ({ product,addToCart }) => {
           
         </ul>
         <div className="product__buttons mt-1">
-          <button onClick={()=>addToCart(product)} className="btn-sm-primary"><i class="uil uil-shopping-cart-alt"></i>Add Cart</button>
+          <button onClick={()=>addToCart(product)} className="btn-sm-primary"><i className="uil uil-shopping-cart-alt"></i>Add Cart</button>
           <Link className="btn-sm-primary"
             to={`/productdetails/${product._id}`}>
-           Details <i class="uil uil-arrow-right"></i>
+           Details <i className="uil uil-arrow-right"></i>
           </Link>
         </div>
       </div>

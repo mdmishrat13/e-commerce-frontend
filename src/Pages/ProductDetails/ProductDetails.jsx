@@ -28,7 +28,8 @@ const ProductDetails = () => {
 
   const exist = cartItems.find(cartItem => cartItem._id=== product._id)
 
-  const imgUrl = `https://e-commerce-server.vercel.app/${product?.image}`
+  // const imgUrl = `https://e-commerce-server.vercel.app/${product?.image}`
+  const imgUrl = `http://localhost:5000/${product?.image}`
   useEffect(()=>{
     setMainImage(imgUrl)
   },[product])
@@ -99,7 +100,8 @@ const postComment= async(e)=>{
   .catch(err=>{
     console.log(err)
   })
-  await axios.patch(`https://e-commerce-server.vercel.app/product/${productId.id}`,{rating:avgRating})
+  // await axios.patch(`https://e-commerce-server.vercel.app/product/${productId.id}`,{rating:avgRating})
+  await axios.patch(`http://localhost:5000/product/${productId.id}`,{rating:avgRating})
   
 }
 
@@ -115,7 +117,8 @@ if(fetchError){
             <div className="view__product-images">
               {product?.images?.map((item) => (
                 <div className="view__product-image">
-                  <img onClick={()=>setMainImage(`https://e-commerce-server.vercel.app/${item}`)} src={`https://e-commerce-server.vercel.app/${item}`} alt="" />
+                  {/* <img onClick={()=>setMainImage(`https://e-commerce-server.vercel.app/${item}`)} src={`https://e-commerce-server.vercel.app/${item}`} alt="" /> */}
+                  <img onClick={()=>setMainImage(`http://localhost:5000/${item}`)} src={`http://localhost:5000/${item}`} alt="" />
                 </div>
               ))}
             </div>
