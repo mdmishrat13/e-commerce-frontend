@@ -142,8 +142,8 @@ const useProducts = ()=>{
   
     const fetchData = async()=>{
 
-        const data = await axios('http://localhost:5000/product')
-        // const data = await axios('https://e-commerce-server.vercel.app/product')
+        // const data = await axios('http://localhost:5000/product')
+        const data = await axios('https://e-commerce-server.vercel.app/product')
         setProducts(data.data)
     }
     useEffect(()=>{
